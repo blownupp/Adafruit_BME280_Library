@@ -36,6 +36,13 @@ void setup() {
   Serial.begin(9600);
   Serial.println(F("BME280 test"));
 
+/*
+ * Use .begin() to initialize the sensor, in this case !bme.begin() tests
+ * whether the sensor is found or not. If left out, any calls for finding 
+ * temperature/humidity/pressure will not return a value, nor will they fail!
+ * Returns 0 if it cannot be initialized, 1 otherwise.
+ */
+ 
   if (!bme.begin()) {
     Serial.println("Could not find a valid BME280 sensor, check wiring!");
     while (1);
